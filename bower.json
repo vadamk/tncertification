@@ -1,0 +1,19 @@
+{
+  "name": "layout",
+  "homepage": "https://github.com/vadamk/tncertification",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "~1.11.3",
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}
