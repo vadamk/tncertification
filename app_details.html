@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEV Certification Board</title>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+    <div class="wrap">
+        <div id="header">
+            <div id="nav" class="navbar" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        </button>
+                        <a class="logo" href="home.html">
+                            <img src="assets/images/logo.png" alt="DEV Certification Board - Logo">
+                        </a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Verify</a></li>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Log Out</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div>
+            </div><!-- /#nav -->
+            <!-- The red line in which the title.  -->
+            <div class="title-line container-fluid">
+                <div class="container">
+                    <h2 class="large">Applicant datails:</h2>
+                    <p>Vladimir Kravchuk</p>
+                </div>
+            </div><!-- /.title-line -->
+        </div><!-- /#header -->
+
+        <div id="main" class="container">
+            <div class="subBlock-conrainer col-md-6" style="padding: 0 30px 0 0;">
+                <div class="subBlock">
+                    <h3><a class='action' href='#' onClick="loadAjaxBoxRight('/app/ajax/applicant.php?act=edit',this);return false;">edit</a>Basics</h3>
+                    <table class='attrList' style='' cellspacing='0' cellpadding='0'>
+                        <tr>
+                        <th class='caption'></th><th class='value'></th></tr>
+                        <tr class='even' style=''>
+                            <td class='caption'>Name</td>
+                            <td class='value'>Vladimir Kravchuk</td>
+                        </tr>
+                        <tr class='odd' style=''>
+                            <td class='caption'>Email</td>
+                            <td class='value'><a href='mailto:kravich2@rambler.ru'>kravich2@rambler.ru</a></td>
+                        </tr>
+                        <tr class='even' style=''>
+                            <td class='caption'>Email OptOut</td>
+                            <td class='value'>No <a class='action' href='#' onClick="loadAjaxBoxRight('/admin/ajax/applicant.php?act=workOptOut&applicantID=387',this);return false;">Edit</a></td>
+                        </tr>
+                        <tr class='odd' style=''>
+                            <td class='caption'>Gender</td>
+                            <td class='value'>Female</td>
+                        </tr>
+                        <tr class='even' style=''>
+                            <td class='caption'>Age</td>
+                            <td class='value'>&nbsp;</td>
+                        </tr>
+                        <tr class='odd' style=''>
+                            <td class='caption'>Date of Birth</td>
+                            <td class='value'>&nbsp;</td>
+                        </tr>
+                        <tr class='even' style=''>
+                            <td class='caption'>SSN</td>
+                            <td class='value'>***-**-</td>
+                        </tr>
+                        <tr class='odd' style=''>
+                            <td class='caption'>Race/Ethnic</td>
+                            <td class='value'>undisclosed / -</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="subBlock-conrainer col-md-6" style="padding: 0 0 0 30px;">
+                <div class="subBlock">
+                    <h3><a class='action' href='#' onClick="loadAjaxBoxRight('/app/ajax/applicant.php?act=edit',this);return false;">edit</a>Basics</h3>
+                    <table class='attrList' style='' cellspacing='0' cellpadding='0'>
+                        <tr>
+                        <th class='caption'></th><th class='value'></th></tr>
+                        <tr class='even' style=''>
+                            <td class='caption'>Name</td>
+                            <td class='value'>Vladimir Kravchuk</td>
+                        </tr>
+                        <tr class='odd' style=''>
+                            <td class='caption'>Email</td>
+                            <td class='value'><a href='mailto:kravich2@rambler.ru'>kravich2@rambler.ru</a></td>
+                        </tr>
+                    </table>
+                </div>   
+            </div>
+        </div><!-- /#main -->
+    
+    </div>
+        
+    <div id="footer" class="container-fluid text-center">
+        <p>©2017 DEV Certification Board www.tncertification.org</p>
+    </div><!-- /#footer -->
+    
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>   
+        detailsBlockStyling();
+    </script>
+</body>
+</html>
