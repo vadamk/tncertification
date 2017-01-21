@@ -49,7 +49,7 @@ function formStyling() {
 }
 
 function detailsBlockStyling() {
-    $('.subBlock a.action').addClass('btn');
-    $('.subBlock tr td:first-child').addClass('col-md-4');
-    $('.subBlock tr td:last-child').addClass('col-md-8');
+    $('.info-block a.action').addClass('btn');
+    $('.info-block tr td:first-child').addClass('col-md-4');
+    $('.info-block tr td:last-child').addClass('col-md-8');
 }
