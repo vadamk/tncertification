@@ -14,6 +14,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "jquery": "~1.11.3",
-    "font-awesome": "fontawesome#^4.7.0"
+    "font-awesome": "fontawesome#^4.7.0",
+    "Slideout-navigation": "slideout#^0.2.0"
   }
 }

@@ -1,0 +1,224 @@
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	
+	/*Disable Animation on Mobile Devices*/
+	.animated {
+		/*CSS transitions*/
+		-o-transition-property: none !important;
+		-moz-transition-property: none !important;
+		-ms-transition-property: none !important;
+		-webkit-transition-property: none !important;
+		transition-property: none !important;
+		/*CSS transforms*/
+		-o-transform: none !important;
+		-moz-transform: none !important;
+		-ms-transform: none !important;
+		-webkit-transform: none !important;
+		transform: none !important;
+		/*CSS animations*/
+		-webkit-animation: none !important;
+		-moz-animation: none !important;
+		-o-animation: none !important;
+		-ms-animation: none !important;
+		animation: none !important;
+	}
+
+	.container-fluid {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.top {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		height: 80px;
+	}
+
+	.top .logo img {
+		max-height: 40px;
+	}
+
+	.title-line {
+		padding: 25px 15px;
+		min-height: auto;
+		text-align: center;
+	}
+
+	.title-line h2 {
+		margin-bottom: 15px;
+		font-size: 16px;
+		line-height: 28px;
+	}
+
+	.title-line h2.large {
+		font-size: 24px;
+		line-height: 32px;
+	}
+
+	.title-line p {
+		margin: 0;
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 26px;
+	}
+
+	#main {
+		padding-top: 0;
+	}
+
+	.login-container {
+		margin: 0;
+	}
+
+	.login-container .field {
+		padding-right: 15px;
+		margin: 5px 0 20px;
+	}
+
+	.login-container .field .btn {
+		display: block;
+		margin: 0 auto;
+		padding: 8px 50px;
+		font-size: 16px;
+	}
+
+	.home-options li {
+		padding: 0;
+		margin: 10px 0;
+	}
+
+	.home-options li:first-child {
+		padding: 0;
+	}
+
+	/* certification-info */
+
+	.certification-info {
+		margin: 20px 0;
+		background: #c81f3f;
+	}
+
+	.certification-info_icon {
+		padding: 10px 5px;
+		width: 36px;
+	}
+
+	.certification-info_icon img {
+		max-width: 100%;
+		vertical-align: top;
+	}
+
+	.certification-info_text {
+		padding: 15px;
+		width: calc(100% - 36px);
+		height: auto;
+		font-size: 20px;
+	}
+
+	.certification-info_text p {
+		margin: 0;
+	}
+
+	/* certifications-list */
+
+	.certifications-list_container {
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	
+	.certifications-list {
+		text-align: center;
+	}
+	
+	.certifications-list li {
+		padding-left: 30px;
+		padding-right: 30px;
+		height: auto;
+	}
+	
+	.certifications-list li:first-child {
+		border-top: none;
+	}
+
+	.certifications-list li .certification {
+		margin: 15px 0;
+		line-height: 1.4;
+	}
+
+	.certifications-list .numb span {
+		font-weight: bold;
+	}
+
+	.certifications-list .status {
+		margin: 0 0 10px;
+		font-style: italic;
+	}
+
+	.certifications-list .numb span,
+	.certifications-list .action .btn {
+		float: none;
+		/* display: block; */
+		margin: 0 auto;
+	}
+
+	.select-certification {
+		text-align: center;
+	}
+
+	/* footer */
+	
+	#footer p {
+		font-size: 14px;
+	}
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
