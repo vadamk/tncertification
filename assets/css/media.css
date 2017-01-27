@@ -177,6 +177,32 @@
 		text-align: center;
 	}
 
+	/* profile */
+
+	.info-block-conrainer {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		max-width: 480px;
+		margin: 0 auto;
+	}
+
+	.certifications-link {
+		margin: 30px 0;
+		text-align: center;
+	}
+	
+	.info-block h3 {
+		font-size: 20px;
+		line-height: 32px;
+	}
+
+	.attrList td,
+	.attrList td * {
+		font-size: 14px;
+	}
+
+	/* profile End */
+
 	/* footer */
 	
 	#footer p {
