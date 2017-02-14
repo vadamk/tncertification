@@ -46,7 +46,9 @@ p {
 	background: #c81f3f;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:active,
+.btn:focus {
 	color: #fff;
 	background: #c81f3f;
 }
@@ -168,6 +170,7 @@ p {
 	height: 40px;
 	font-size: 14px;
 	color: #333333;
+	border-radius: 3px;
 	border: 1px solid #e1e1e1;
 	outline: none;
 }
@@ -396,6 +399,53 @@ p {
 	text-decoration: underline;
 }
 
+/* modal - ajaxFormDiv */
+
+#ajaxFormDiv {
+	position: relative;
+	margin: 0 auto;
+	padding: 35px;
+	width: 450px;
+	background: #fff;
+}
+
+#ajaxFormDiv .fieldCaption {
+	display: none;
+}
+
+#ajaxFormDiv form input:not([type=submit]) {
+	margin: 10px 0;
+	padding: 7px 10px;
+	width: 100%;
+	height: 40px;
+	font-size: 14px;
+	color: #333333;
+	border-radius: 3px;
+	border: 1px solid #e1e1e1;
+	outline: none;
+}
+
+#ajaxFormDiv .row > .col-md-6 {
+	padding-left: 5px;
+}
+
+#ajaxFormDiv .row > .col-md-6:first-child {
+	padding-right: 5px;
+	padding-left: 15px;
+}
+
+#ajaxFormDiv form .modalButtons {
+	margin-top: 30px;
+}
+
+#ajaxFormDiv form .modalButtons > .btn {
+	margin-left: 10px;
+	padding: 5px 15px;
+	font-size: 14px;
+}
+
+/* end modal - ajaxFormDiv */
+
 /* footer */
 
 #footer {
@@ -413,6 +463,10 @@ p {
 
 .mark {
 	color: #c81f3f;
+}
+
+.hidden {
+	display: none;
 }
 
 /* slide nav */

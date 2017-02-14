@@ -15,6 +15,7 @@
     "bootstrap": "^3.3.7",
     "jquery": "~1.11.3",
     "font-awesome": "fontawesome#^4.7.0",
-    "slideout.js": "https://github.com/mango/slideout.git#^1.0.1"
+    "slideout.js": "https://github.com/mango/slideout.git#^1.0.1",
+    "magnific-popup": "^1.1.0"
   }
 }

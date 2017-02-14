@@ -8,4 +8,9 @@ $(document).ready(function() {
     $(".navbar-toggle").click(function(event) {
     	slideout.toggle();
     });
+
+    // temp
+
+    $('#basic').magnificPopup();
+    $('#basic').trigger( "click" );
 });

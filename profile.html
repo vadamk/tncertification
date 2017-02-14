@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/magnific-popup/dist/magnific-popup.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700">
 
@@ -58,7 +59,8 @@
 
             <div class="info-block-conrainer col-md-6" style="padding: 0 30px 0 0;">
                 <div class="info-block">
-                    <h3><a class='action' href='#' onClick="loadAjaxBoxRight('/app/ajax/applicant.php?act=edit',this);return false;">edit</a>Basics</h3>
+                    <h3><a class='action' href='#ajaxFormDiv' id="basic">edit</a>Basics</h3>
+                    <!-- <h3><a class='action' href='#' onClick="loadAjaxBoxRight('/app/ajax/applicant.php?act=edit',this);return false;">edit</a>Basics</h3> -->
                     <table class='attrList' style='' cellspacing='0' cellpadding='0'>
                         <tr>
                         <th class='caption'></th><th class='value'></th></tr>
@@ -134,14 +136,47 @@
         </div><!-- /#main -->
     
     </div>
-        
+    
+    <!-- modal windows -->
+
+    <div class="hidden">
+        <div id='ajaxFormDiv'>
+            <div class='modalClose'>
+                <a class='box' href='javascript:closeAjaxForm();'>close</a>
+            </div>
+            <div class='clear'></div>
+            <script language="javascript">var bool_58a3227abea66 = false;</script>
+            <form action="/app/ajax/applicant.php" method="POST" onsubmit="if(bool_58a3227abea66){return false;}else{bool_58a3227abea66=true;return true;}">
+                <div class="fieldCaption">Name <em>(First, Middle, Last, Suffix if any)</em></div>
+                <div class="field">
+                    <input type="text" name="firstName" size="12" value="Vladimir">&nbsp;
+                    <input type="text" name="middleName" size="7" value="">&nbsp;
+                    <input type="text" name="lastName" size="12" value="Kravchuk">&nbsp;
+                    <input type="text" name="suffix" size="3" value=""></div>
+                <div class="fieldCaption">Email Address <em>(this is also your login)</em></div>
+                <div class="field">
+                    <input type="text" name="email" size="30" value="kravich2@rambler.ru"></div>
+                <div class="fieldCaption">Name of Organization/Employer</div>
+                <div class="field">
+                    <input type="text" name="employer" value="inVeritaSoft"></div>
+                    <input type="hidden" name="applicantID" id="applicantID" value="387">
+                    <input type="hidden" name="act" value="p_edit">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- end modal windows -->
+    
     <div id="footer" class="container-fluid text-center">
         <p>©2017 DEV Certification Board www.tncertification.org</p>
     </div><!-- /#footer -->
-    
+
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/slideout.js/dist/slideout.min.js"></script>
+    <script src="bower_components/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
     <script src="assets/js/main.js"></script>
 
     <script>
@@ -150,6 +185,60 @@
         $('.info-block tr td:first-child').addClass('col-xs-4');
         $('.info-block tr td:last-child').addClass('col-md-8');
         $('.info-block tr td:last-child').addClass('col-xs-8');
+    </script>
+
+    <script>
+        var objModal = $("#ajaxFormDiv");
+        var objModalForm = objModal.find('form');
+        var arrNames = [];
+        var arrValues = [];
+
+        objModalForm.find('input').each(function() {
+            arrNames.push($(this).attr('name'))
+            arrValues.push($(this).attr('value'))
+        });
+
+        
+ 
+        objModal.find('.modalClose').remove();
+
+        htmlNewForm =   '<div class="row">'+
+                            '<div class="field col-md-6">'+
+                                '<input name="'+arrNames[0]+'" value="'+arrValues[0]+'">'+
+                            '</div>'+
+                            '<div class="field col-md-6">'+    
+                                '<input name="'+arrNames[1]+'" value="'+arrValues[1]+'">'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="row">'+
+                            '<div class="field col-md-6">'+    
+                                '<input name="'+arrNames[2]+'" value="'+arrValues[2]+'">'+
+                            '</div>'+
+                            '<div class="field col-md-6">'+    
+                                '<input name="'+arrNames[3]+'" value="'+arrValues[3]+'">'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="row">'+
+                            '<div class="field col-md-12">'+    
+                                '<input name="'+arrNames[4]+'" value="'+arrValues[4]+'">'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="row">'+
+                            '<div class="field col-md-12">'+    
+                                '<input name="'+arrNames[5]+'" value="'+arrValues[5]+'">'+
+                                '<input class="hidden" name="'+arrNames[6]+'" id="applicantID" value="'+arrValues[6]+'">'+
+                                '<input class="hidden" name="'+arrNames[7]+'" value="'+arrValues[7]+'">'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="row">'+
+                            '<div class="modalButtons col-md-12 text-right">'+    
+                                '<a class="btn" href="javascript:closeAjaxForm();">Close</a>'+
+                                '<input type="submit" class="btn" value="Submit">'+
+                            '</div>'+
+                        '</div>';
+
+        objModalForm.html(htmlNewForm);
+
     </script>
 </body>
 </html>
