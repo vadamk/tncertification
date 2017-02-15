@@ -187,12 +187,11 @@ p {
 	cursor: pointer;
 }
 
-.login-container .rembrme input[type=checkbox] {
-	/*visibility: hidden;*/
+.login-container input[type=checkbox] {
 	margin-right: 12px;
 }
 
-.login-container .rembrme input[type=checkbox]:after {
+.login-container input[type=checkbox]:after {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -207,7 +206,7 @@ p {
 	content: "";
 }
 
-.login-container .rembrme input[type=checkbox]:checked:after {
+.login-container input[type=checkbox]:checked:after {
 	content: "\f00c";
 }
 
@@ -404,20 +403,23 @@ p {
 #ajaxFormDiv {
 	position: relative;
 	margin: 0 auto;
-	padding: 35px;
+	padding: 25px 35px;
 	width: 450px;
 	background: #fff;
 }
 
-#ajaxFormDiv .fieldCaption {
-	display: none;
+#ajaxFormDiv h2 {
+	margin-bottom: 30px;
 }
 
-#ajaxFormDiv form input:not([type=submit]) {
+#ajaxFormDiv select,
+#ajaxFormDiv select option,
+#ajaxFormDiv input:not([type=submit]) {
 	margin: 10px 0;
 	padding: 7px 10px;
 	width: 100%;
 	height: 40px;
+	line-height: 40px;
 	font-size: 14px;
 	color: #333333;
 	border-radius: 3px;
@@ -425,23 +427,50 @@ p {
 	outline: none;
 }
 
-#ajaxFormDiv .row > .col-md-6 {
+#ajaxFormDiv input[type=checkbox] {
+	margin-right: 12px;
+}
+
+#ajaxFormDiv input[type=checkbox]:after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 18px;
+	height: 18px;
+	line-height: 16px;
+	font-family: "Fontawesome";
+	text-align: center;
+	border-radius: 2px;
+	border: 1px solid #999999;
+	background: #fff;
+	content: "";
+}
+
+.login-container input[type=checkbox]:checked:after {
+	content: "\f00c";
+}
+
+#ajaxFormDiv .row > .field:not(.col-md-12) {
 	padding-left: 5px;
 }
 
-#ajaxFormDiv .row > .col-md-6:first-child {
+#ajaxFormDiv .row > .field:not(.col-md-12):nth-child(2n+1) {
 	padding-right: 5px;
 	padding-left: 15px;
 }
 
-#ajaxFormDiv form .modalButtons {
-	margin-top: 30px;
+#ajaxFormDiv .modal_buttons {
+	margin-top: 25px;
 }
 
-#ajaxFormDiv form .modalButtons > .btn {
+#ajaxFormDiv .modal_buttons .btn {
 	margin-left: 10px;
 	padding: 5px 15px;
 	font-size: 14px;
+}
+
+#ajaxFormDiv .modal_buttons .btn-close {
+	background: #333333;
 }
 
 /* end modal - ajaxFormDiv */
@@ -518,7 +547,6 @@ body {
 	/* background: #c81f3f; */
 	padding-top: 100px;
 	background: url(../images/mobile-nav-bg.png) repeat-y;
-
 }
 
 #nav ul {

@@ -101,7 +101,7 @@
             </div>
             <div class="info-block-conrainer col-md-6" style="padding: 0 0 0 30px;">
                 <div class="info-block">
-                    <h3><a class='action' href='#' onClick="loadAjaxBoxRight('/app/ajax/applicant.php?act=edit',this);return false;">edit</a>Phone Numbers</h3>
+                    <h3><a class='action' href='#ajaxFormDiv' id="phone" onClick="loadAjaxBoxRight('/app/ajax/applicant.php?act=edit',this);return false;">edit</a>Phone Numbers</h3>
                     <table class='attrList' style='' cellspacing='0' cellpadding='0'>
                         <tr>
                         <th class='caption'></th><th class='value'></th></tr>
@@ -146,7 +146,9 @@
             </div>
             <div class='clear'></div>
             <script language="javascript">var bool_58a3227abea66 = false;</script>
-            <form action="/app/ajax/applicant.php" method="POST" onsubmit="if(bool_58a3227abea66){return false;}else{bool_58a3227abea66=true;return true;}">
+            
+            <!-- Edit Basics Information -->
+            <!-- <form action="/app/ajax/applicant.php" method="POST" onsubmit="if(bool_58a3227abea66){return false;}else{bool_58a3227abea66=true;return true;}">
                 <div class="fieldCaption">Name <em>(First, Middle, Last, Suffix if any)</em></div>
                 <div class="field">
                     <input type="text" name="firstName" size="12" value="Vladimir">&nbsp;
@@ -163,6 +165,70 @@
                     <input type="hidden" name="act" value="p_edit">
                     <input type="submit" value="Submit">
                 </div>
+            </form> -->
+
+            <!-- Edit Phone numbers -->
+            <!-- <form action="/app/ajax/applicant.php" method="POST" onsubmit="if(bool_58a45216e3841){return false;}else{bool_58a45216e3841=true;return true;}">
+            <input type="hidden" name="applicantID" value="387">
+                <div class="fieldCaption"> Phone Number</div>
+                <div class="field">Type 
+                    <select name="_phoneTypeLookupID" id="_phoneTypeLookupID">
+                        <option value="">please select</option>
+                        <option value="88">Home</option>
+                        <option value="89" selected="">Work</option>
+                        <option value="90">Cell</option>
+                        <option value="91">Other</option>
+                    </select>&nbsp;&nbsp;&nbsp;Number 
+                    <input type="text" name="_phonePre" value="012" size="3" maxlength="3" onkeyup="if(checkKey(event)){if(this.value.length=='3'){this.nextSibling.nextSibling.focus();this.nextSibling.nextSibling.select();}}"> - 
+                    <input type="text" name="_phoneCar" value="345" size="3" maxlength="3" onkeyup="if(checkKey(event)){if(this.value.length=='3'){this.nextSibling.nextSibling.focus();this.nextSibling.nextSibling.select();}}"> - 
+                    <input type="text" name="_phoneCdr" value="6789" size="4" maxlength="4"> ext
+                    <input type="text" name="_phoneExt" size="5" value="">
+                </div>
+                <input type="hidden" name="phoneID" id="phoneID" value="883">
+                <input type="hidden" name="act" value="p_editPhone">
+                <input type="submit" value="Submit">
+            </form> -->
+
+            <form action="/app/ajax/applicant.php" method="POST" onsubmit="if(bool_58a47b3fc8e0c){return false;}else{bool_58a47b3fc8e0c=true;return true;}">
+                <input type="hidden" name="addrapplicantID" value="387">
+                <div class="fieldCaption">Type of Address</div>
+                <div class="field">
+                    <select name="addraddressTypeLookupID" id="addraddressTypeLookupID">
+                        <option value="4">Home</option>
+                        <option value="5" selected="">Work</option>
+                        <option value="183">Trainer</option>
+                    </select>
+                </div>
+                <div class="fieldCaption"> Address</div>
+                <div class="field">
+                    <input type="text" name="addrstreet1" size="40" value="Saharova 23, 539a"><br>
+                    <input type="text" name="addrstreet2" size="40" value="">
+                </div>
+                <div class="fieldCaption">City, State, Zip</div>
+                <div class="field">
+                    <input type="text" name="addrcity" size="20" value="Lviv">, 
+                    <select name="addrstate" id="addrstate">
+                        <option value="TN" selected="">TN</option>
+                        <option value="TX">TX</option>
+                        <option value="UT">UT</option>
+                        <option value="VT">VT</option>
+                        <option value="VI">VI</option>
+                        <option value="VA">VA</option>
+                        <option value="WA">WA</option>
+                        <option value="WV">WV</option>
+                        <option value="WI">WI</option>
+                        <option value="WY">WY</option>
+                        <option value="AE">AE</option>
+                        <option value="AS">AS</option>
+                        <option value="MH">MH</option>
+                        <option value="MP">MP</option>
+                        <option value="PW">PW</option>
+                    </select>&nbsp;
+                    <input type="text" name="addrzip" size="5" value="29000">
+                </div>
+                <input type="hidden" name="addressID" id="addressID" value="712">
+                <input type="hidden" name="act" value="p_editAddr">
+                <input type="submit" value="Submit">
             </form>
         </div>
     </div>
@@ -188,56 +254,172 @@
     </script>
 
     <script>
-        var objModal = $("#ajaxFormDiv");
-        var objModalForm = objModal.find('form');
-        var arrNames = [];
-        var arrValues = [];
-
-        objModalForm.find('input').each(function() {
-            arrNames.push($(this).attr('name'))
-            arrValues.push($(this).attr('value'))
-        });
-
+        var Modal = $("#ajaxFormDiv");
+        var ModalForm = Modal.find('form');
         
- 
-        objModal.find('.modalClose').remove();
+        EditModalStyling("Edit Address");
 
-        htmlNewForm =   '<div class="row">'+
-                            '<div class="field col-md-6">'+
-                                '<input name="'+arrNames[0]+'" value="'+arrValues[0]+'">'+
-                            '</div>'+
-                            '<div class="field col-md-6">'+    
-                                '<input name="'+arrNames[1]+'" value="'+arrValues[1]+'">'+
-                            '</div>'+
-                        '</div>'+
-                        '<div class="row">'+
-                            '<div class="field col-md-6">'+    
-                                '<input name="'+arrNames[2]+'" value="'+arrValues[2]+'">'+
-                            '</div>'+
-                            '<div class="field col-md-6">'+    
-                                '<input name="'+arrNames[3]+'" value="'+arrValues[3]+'">'+
-                            '</div>'+
-                        '</div>'+
-                        '<div class="row">'+
-                            '<div class="field col-md-12">'+    
-                                '<input name="'+arrNames[4]+'" value="'+arrValues[4]+'">'+
-                            '</div>'+
-                        '</div>'+
-                        '<div class="row">'+
-                            '<div class="field col-md-12">'+    
-                                '<input name="'+arrNames[5]+'" value="'+arrValues[5]+'">'+
-                                '<input class="hidden" name="'+arrNames[6]+'" id="applicantID" value="'+arrValues[6]+'">'+
-                                '<input class="hidden" name="'+arrNames[7]+'" value="'+arrValues[7]+'">'+
-                            '</div>'+
-                        '</div>'+
-                        '<div class="row">'+
-                            '<div class="modalButtons col-md-12 text-right">'+    
-                                '<a class="btn" href="javascript:closeAjaxForm();">Close</a>'+
-                                '<input type="submit" class="btn" value="Submit">'+
-                            '</div>'+
-                        '</div>';
+        // Edit Phone numbers
+        function EditModalStyling(ModalTitle) {
 
-        objModalForm.html(htmlNewForm);
+            // Manual properties list
+            var FieldManualPropList = {
+                _phoneTypeLookupID: {
+                    label: "",
+                    placeholder: "",
+                    collWidth: 12,
+                },
+                _phonePre: {
+                    label: "",
+                    placeholder: "Phone pre",
+                    collWidth: 4,
+                },
+                _phoneCar: {
+                    label: "",
+                    placeholder: "Phone car",
+                    collWidth: 8,   
+                },
+                _phoneCdr: {
+                    label: "",
+                    placeholder: "Phone cdr",
+                    collWidth: 8,
+                },
+                _phoneExt: {
+                    label: "",
+                    placeholder: "Phone ext",
+                    collWidth: 4,
+                },
+                firstName: {
+                    placeholder: "First name",
+                    collWidth: 6,
+                },
+                middleName: {
+                    placeholder: "Middle name",
+                    collWidth: 6,
+                },
+                lastName: {
+                    placeholder: "Last name",
+                    collWidth: 6,
+                },
+                suffix: {
+                    placeholder: "Suffix",
+                    collWidth: 6,
+                },
+                email: {
+                    placeholder: "E-mail",
+                    collWidth: 12,
+                },
+                employer: {
+                    placeholder: "Employer",
+                    collWidth: 12,
+                },
+            }
+
+            // Go through all fields modal form and save each of them
+            var FieldList = {};
+            ModalForm.find('select, input:not([type=submit])').each(function() {
+                
+                var th = $(this);
+                
+                var FieldLabel = "";
+                var FieldPlaceholder = "";
+                var FieldCollWidth = 12;
+
+                if (th.attr('name') in FieldManualPropList) {
+                    var FieldLabel = FieldManualPropList[th.attr('name')].label;
+                    var FieldPlaceholder = FieldManualPropList[th.attr('name')].placeholder;
+                    var FieldCollWidth = FieldManualPropList[th.attr('name')].collWidth;
+                }
+
+                var OptionList = {};
+                if (th.prop("tagName") === "SELECT") {
+                    OptionList = getOptionList(th);
+                }
+
+                FieldList[th.attr('name')] = {
+                    type: th.attr('type'),
+                    value: th.attr('value'),
+                    class: th.attr('class'),
+                    id: th.attr('id'),
+                    tagName: th.prop("tagName"),
+                    label: FieldLabel,
+                    placeholder: FieldPlaceholder,
+                    collWidth: FieldCollWidth,
+                    options: OptionList,
+                }
+            });
+
+            Modal.find('.modalClose').remove();
+            Modal.find('.clear').remove();
+            ModalForm.before('<h2 class="text-center">'+ModalTitle+'</h2>');
+            ModalForm.html('<div class="row"></div>');
+
+            for (var key in FieldList) {
+
+                NewField = $(document.createElement('div'));
+
+                NewInput =  $(document.createElement(FieldList[key].tagName));
+
+                NewInput.attr({
+                    name: key,
+                    type: FieldList[key].type,
+                    value: FieldList[key].value,
+                    class: FieldList[key].class,
+                    placeholder: FieldList[key].placeholder,
+                });
+                
+                if (FieldList[key].tagName === "SELECT") {
+                    for (var opKey in FieldList[key].options) {
+
+                        NewOption = $(document.createElement('option'));
+                        NewOption.text(opKey);
+                        NewOption.attr("value", FieldList[key].options[opKey].value);
+                        
+                        if (FieldList[key].options[opKey].selected) {
+                            NewOption.attr("selected", "selected");
+                        }
+                        
+                        NewInput.append(NewOption);
+                    }
+                }
+                  
+                NewField.append(NewInput);
+                NewField.attr('class', 'field col-md-'+FieldList[key].collWidth);
+
+                
+                ModalForm.find('.row').append(NewField);
+            }
+
+            var ModalButtons = '<div class="modal_buttons col-md-12 text-right">'+    
+                                    '<a class="btn btn-close" href="javascript:closeAjaxForm();">Close</a>'+
+                                    '<input type="submit" class="btn" value="Submit">'+
+                                '</div>';
+
+            ModalForm.find('.row').append(ModalButtons);
+
+
+        } // End EditModalStyling
+
+        function getOptionList(Select) {
+            var Options = {};
+
+            Select.find('option').each(function() {
+                var th = $(this);
+
+                if (th.attr('selected') === "selected") {
+                    var optionSelected = true;
+                } else {
+                    var optionSelected = false
+                }
+                
+                Options[th.text()] = {
+                    selected: optionSelected,
+                    value: th.attr('value'),
+                }
+            });
+
+            return Options;
+        }
 
     </script>
 </body>
