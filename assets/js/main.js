@@ -64,11 +64,10 @@ function EditModalStyling(ModalTitle) {
         Modal.find('.modalClose').remove();
         Modal.find('.clear').remove();
         ModalForm.before('<h2 class="text-center">'+ModalTitle+'</h2>');
-        ModalForm.html('<div class="row"></div>');
+        ModalForm.html('<div class="row"></div>'+
+                        '<div class="hidden_fields"></div>');
 
         for (var key in FieldList) {
-
-            console.log(FieldList[key].label);
             
             newInput =  $(document.createElement(FieldList[key].tagName));
             newInput.attr({
@@ -79,6 +78,7 @@ function EditModalStyling(ModalTitle) {
                 placeholder: FieldList[key].placeholder,
             });
 
+            // Check if FIELD - SELECT
             if (FieldList[key].tagName === "SELECT") {
                 for (var optKey in FieldList[key].options) {
 
@@ -94,25 +94,31 @@ function EditModalStyling(ModalTitle) {
                 }
             }
 
-            if (FieldList[key].label != "") {
-                newFieldLabel =  $(document.createElement("label"));
-                newFieldLabel.attr('for', key);
-                newFieldLabel.text(FieldList[key].label);
-                
-                newFieldCaption =  $(document.createElement("div"));
-                newFieldCaption.attr('class', 'field_caption');
-                newFieldCaption.append(newFieldLabel);
+            // Check if FIELD - HIDDEN
+            if (FieldList[key].type != "hidden") {
 
-                newField.append(newFieldCaption);
-            }
-              
+                newField = $(document.createElement('div'));
 
-            newField = $(document.createElement('div'));
-            newField.append(newInput);
-            newField.attr('class', 'field col-md-'+FieldList[key].collWidth);
-
+                // Check if label is EXISTS
+                if (FieldList[key].label != "") {
+                    newFieldLabel =  $(document.createElement("label"));
+                    newFieldLabel.attr('for', key);
+                    newFieldLabel.text(FieldList[key].label);
+                    
+                    newFieldCaption =  $(document.createElement("div"));
+                    newFieldCaption.attr('class', 'field_caption col-md-12');
+                    newFieldCaption.append(newFieldLabel);
+                    
+                    ModalForm.find('.row').append(newFieldCaption);
+                }
+                  
+                newField.append(newInput);
+                newField.attr('class', 'field col-md-'+FieldList[key].collWidth);
             
-            ModalForm.find('.row').append(newField);
+                ModalForm.find('.row').append(newField);
+            } else {
+                ModalForm.find('.hidden_fields').append(newInput);
+            }
         }
 
         var ModalButtons = '<div class="modal_buttons col-md-12 text-right">'+    
@@ -121,8 +127,6 @@ function EditModalStyling(ModalTitle) {
                             '</div>';
 
         ModalForm.find('.row').append(ModalButtons);
-
-
     });
 }
 

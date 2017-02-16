@@ -1,11 +1,11 @@
 {  
    "_phoneTypeLookupID":{  
-      "label":"Phone type",
+      "label":"Phone number type",
       "placeholder":"",
       "collWidth":12
    },
    "_phonePre":{  
-      "label":"",
+      "label":"Phone number (Pre, car, cdr, ext)",
       "placeholder":"Phone pre",
       "collWidth":4
    },
@@ -53,5 +53,35 @@
       "label":"",
       "placeholder":"Employer",
       "collWidth":12
+   },
+   "addraddressTypeLookupID":{  
+      "label":"Address type",
+      "placeholder":"",
+      "collWidth":12
+   },
+   "addrstreet1":{  
+      "label":"",
+      "placeholder":"Address 1",
+      "collWidth":12
+   },
+   "addrstreet2":{  
+      "label":"",
+      "placeholder":"Address 2",
+      "collWidth":12
+   },
+   "addrcity":{  
+      "label":"",
+      "placeholder":"City",
+      "collWidth":6
+   },
+   "addrstate":{  
+      "label":"",
+      "placeholder":"",
+      "collWidth":3
+   },
+   "addrzip":{  
+      "label":"",
+      "placeholder":"ZIP",
+      "collWidth":3
    }
 }
