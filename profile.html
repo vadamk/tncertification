@@ -168,7 +168,7 @@
             </form> -->
 
             <!-- Edit Phone numbers -->
-            <!-- <form action="/app/ajax/applicant.php" method="POST" onsubmit="if(bool_58a45216e3841){return false;}else{bool_58a45216e3841=true;return true;}">
+            <form action="/app/ajax/applicant.php" method="POST" onsubmit="if(bool_58a45216e3841){return false;}else{bool_58a45216e3841=true;return true;}">
             <input type="hidden" name="applicantID" value="387">
                 <div class="fieldCaption"> Phone Number</div>
                 <div class="field">Type 
@@ -187,9 +187,10 @@
                 <input type="hidden" name="phoneID" id="phoneID" value="883">
                 <input type="hidden" name="act" value="p_editPhone">
                 <input type="submit" value="Submit">
-            </form> -->
+            </form>
 
-            <form action="/app/ajax/applicant.php" method="POST" onsubmit="if(bool_58a47b3fc8e0c){return false;}else{bool_58a47b3fc8e0c=true;return true;}">
+            <!-- Edit Address -->
+            <!-- <form action="/app/ajax/applicant.php" method="POST" onsubmit="if(bool_58a47b3fc8e0c){return false;}else{bool_58a47b3fc8e0c=true;return true;}">
                 <input type="hidden" name="addrapplicantID" value="387">
                 <div class="fieldCaption">Type of Address</div>
                 <div class="field">
@@ -229,7 +230,7 @@
                 <input type="hidden" name="addressID" id="addressID" value="712">
                 <input type="hidden" name="act" value="p_editAddr">
                 <input type="submit" value="Submit">
-            </form>
+            </form> -->
         </div>
     </div>
 
@@ -254,172 +255,8 @@
     </script>
 
     <script>
-        var Modal = $("#ajaxFormDiv");
-        var ModalForm = Modal.find('form');
         
         EditModalStyling("Edit Address");
-
-        // Edit Phone numbers
-        function EditModalStyling(ModalTitle) {
-
-            // Manual properties list
-            var FieldManualPropList = {
-                _phoneTypeLookupID: {
-                    label: "",
-                    placeholder: "",
-                    collWidth: 12,
-                },
-                _phonePre: {
-                    label: "",
-                    placeholder: "Phone pre",
-                    collWidth: 4,
-                },
-                _phoneCar: {
-                    label: "",
-                    placeholder: "Phone car",
-                    collWidth: 8,   
-                },
-                _phoneCdr: {
-                    label: "",
-                    placeholder: "Phone cdr",
-                    collWidth: 8,
-                },
-                _phoneExt: {
-                    label: "",
-                    placeholder: "Phone ext",
-                    collWidth: 4,
-                },
-                firstName: {
-                    placeholder: "First name",
-                    collWidth: 6,
-                },
-                middleName: {
-                    placeholder: "Middle name",
-                    collWidth: 6,
-                },
-                lastName: {
-                    placeholder: "Last name",
-                    collWidth: 6,
-                },
-                suffix: {
-                    placeholder: "Suffix",
-                    collWidth: 6,
-                },
-                email: {
-                    placeholder: "E-mail",
-                    collWidth: 12,
-                },
-                employer: {
-                    placeholder: "Employer",
-                    collWidth: 12,
-                },
-            }
-
-            // Go through all fields modal form and save each of them
-            var FieldList = {};
-            ModalForm.find('select, input:not([type=submit])').each(function() {
-                
-                var th = $(this);
-                
-                var FieldLabel = "";
-                var FieldPlaceholder = "";
-                var FieldCollWidth = 12;
-
-                if (th.attr('name') in FieldManualPropList) {
-                    var FieldLabel = FieldManualPropList[th.attr('name')].label;
-                    var FieldPlaceholder = FieldManualPropList[th.attr('name')].placeholder;
-                    var FieldCollWidth = FieldManualPropList[th.attr('name')].collWidth;
-                }
-
-                var OptionList = {};
-                if (th.prop("tagName") === "SELECT") {
-                    OptionList = getOptionList(th);
-                }
-
-                FieldList[th.attr('name')] = {
-                    type: th.attr('type'),
-                    value: th.attr('value'),
-                    class: th.attr('class'),
-                    id: th.attr('id'),
-                    tagName: th.prop("tagName"),
-                    label: FieldLabel,
-                    placeholder: FieldPlaceholder,
-                    collWidth: FieldCollWidth,
-                    options: OptionList,
-                }
-            });
-
-            Modal.find('.modalClose').remove();
-            Modal.find('.clear').remove();
-            ModalForm.before('<h2 class="text-center">'+ModalTitle+'</h2>');
-            ModalForm.html('<div class="row"></div>');
-
-            for (var key in FieldList) {
-
-                NewField = $(document.createElement('div'));
-
-                NewInput =  $(document.createElement(FieldList[key].tagName));
-
-                NewInput.attr({
-                    name: key,
-                    type: FieldList[key].type,
-                    value: FieldList[key].value,
-                    class: FieldList[key].class,
-                    placeholder: FieldList[key].placeholder,
-                });
-                
-                if (FieldList[key].tagName === "SELECT") {
-                    for (var opKey in FieldList[key].options) {
-
-                        NewOption = $(document.createElement('option'));
-                        NewOption.text(opKey);
-                        NewOption.attr("value", FieldList[key].options[opKey].value);
-                        
-                        if (FieldList[key].options[opKey].selected) {
-                            NewOption.attr("selected", "selected");
-                        }
-                        
-                        NewInput.append(NewOption);
-                    }
-                }
-                  
-                NewField.append(NewInput);
-                NewField.attr('class', 'field col-md-'+FieldList[key].collWidth);
-
-                
-                ModalForm.find('.row').append(NewField);
-            }
-
-            var ModalButtons = '<div class="modal_buttons col-md-12 text-right">'+    
-                                    '<a class="btn btn-close" href="javascript:closeAjaxForm();">Close</a>'+
-                                    '<input type="submit" class="btn" value="Submit">'+
-                                '</div>';
-
-            ModalForm.find('.row').append(ModalButtons);
-
-
-        } // End EditModalStyling
-
-        function getOptionList(Select) {
-            var Options = {};
-
-            Select.find('option').each(function() {
-                var th = $(this);
-
-                if (th.attr('selected') === "selected") {
-                    var optionSelected = true;
-                } else {
-                    var optionSelected = false
-                }
-                
-                Options[th.text()] = {
-                    selected: optionSelected,
-                    value: th.attr('value'),
-                }
-            });
-
-            return Options;
-        }
 
     </script>
 </body>

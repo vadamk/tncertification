@@ -1,0 +1,57 @@
+{  
+   "_phoneTypeLookupID":{  
+      "label":"Phone type",
+      "placeholder":"",
+      "collWidth":12
+   },
+   "_phonePre":{  
+      "label":"",
+      "placeholder":"Phone pre",
+      "collWidth":4
+   },
+   "_phoneCar":{  
+      "label":"",
+      "placeholder":"Phone car",
+      "collWidth":8
+   },
+   "_phoneCdr":{  
+      "label":"",
+      "placeholder":"Phone cdr",
+      "collWidth":8
+   },
+   "_phoneExt":{  
+      "label":"",
+      "placeholder":"Phone ext",
+      "collWidth":4
+   },
+   "firstName":{  
+      "label":"",
+      "placeholder":"First name",
+      "collWidth":6
+   },
+   "middleName":{  
+      "label":"",
+      "placeholder":"Middle name",
+      "collWidth":6
+   },
+   "lastName":{  
+      "label":"",
+      "placeholder":"Last name",
+      "collWidth":6
+   },
+   "suffix":{  
+      "label":"",
+      "placeholder":"Suffix",
+      "collWidth":6
+   },
+   "email":{  
+      "label":"",
+      "placeholder":"E-mail",
+      "collWidth":12
+   },
+   "employer":{  
+      "label":"",
+      "placeholder":"Employer",
+      "collWidth":12
+   }
+}
